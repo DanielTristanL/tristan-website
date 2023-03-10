@@ -1,0 +1,529 @@
+:root {
+  --primary: #f99417;
+  --bg: rgb(0, 0, 0);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", Sans-Serif;
+  background-color: var(--bg);
+  color: #fff;
+  /* min-height: 3000px; */
+  /*! +kan min-height Jika ingin membuat element baru */
+}
+
+/** Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.3rem 7%;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgb(255, 255, 255);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.navbar .navbar-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  /*font-family: "Bangers", cursive;*/
+  font-style: italic;
+}
+
+.navbar .navbar-logo span {
+  color: #fff;
+}
+
+.navbar .navbar-nav a {
+  color: #fff;
+  display: inline-block;
+  font-size: 1.4rem;
+  margin: 0 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+  color: var(--primary);
+}
+
+/* Transition Menu: Home, dll..*/
+.navbar .navbar-nav a::after {
+  content: " ";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--primary);
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+
+.navbar .navbar-icon a {
+  color: #fff;
+  margin: 0 0.5rem;
+}
+
+.navbar .navbar-icon a:hover {
+  color: var(--primary);
+}
+
+#hamburger-menu {
+  display: none;
+}
+
+/** Footer */
+
+footer {
+  background-color: var(--primary);
+  text-align: center;
+  padding: 1rem 0 2rem;
+  margin-top: 3rem;
+  width: 100%;
+}
+
+footer .socials {
+  padding: 1rem 0;
+}
+
+footer .socials a {
+  color: #fff;
+  margin: 1rem;
+}
+
+footer .socials a:hover,
+footer .links a:hover {
+  color: var(--bg);
+}
+
+footer .links {
+  margin-bottom: 1.5rem;
+}
+
+footer .links a {
+  color: #fff;
+  padding: 0.7rem 1rem;
+  font-size: 1.5rem;
+}
+
+footer .credit {
+  font-size: 1.2rem;
+}
+
+footer .credit a {
+  color: var(--bg);
+  font-weight: 400;
+}
+
+/*! Setting Ukuran Layar */
+/* Laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 75%;
+  }
+}
+/* Akhir Laptop */
+
+/* Tablet */
+@media (max-width: 768px) {
+  html {
+    font-size: 62.5%;
+  }
+
+  #hamburger-menu {
+    display: inline-block;
+  }
+
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 30rem;
+    height: 100vh;
+    transition: 0.3s;
+  }
+
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+
+  .navbar .navbar-nav a {
+    color: #fff;
+    display: block;
+    margin: 1.5rem;
+    padding: 0.1rem;
+    font-size: 2rem;
+  }
+
+  .navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.3);
+  }
+
+  .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+  }
+
+  .abouts .row {
+    flex-wrap: wrap;
+  }
+  .abouts .row .about-img img {
+    height: 24rem;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .abouts .row .content {
+    padding: 0;
+  }
+
+  .about .row .content h3 {
+    margin-top: 1rem;
+    font-size: 2rem;
+  }
+
+  .about .row .content p {
+    font-size: 1.6rem;
+  }
+
+  .kontak .row {
+    flex-wrap: wrap;
+  }
+
+  .kontak .row .map {
+    height: 30rem;
+  }
+
+  .kontak .row form {
+    padding-top: 0;
+  }
+
+  .close {
+    padding: 25px;
+  }
+
+  .close {
+    position: absolute;
+    top: 100px;
+    right: 0;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .myimage p {
+    text-align: center;
+    right: 50px;
+    font-size: 1.6rem;
+    margin-bottom: 5rem;
+  }
+}
+/* Akhir Tablet */
+
+/* Mobile Phone */
+@media (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
+}
+/* Akhir Phone */
+
+/*! CSS Banner */
+.banner {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url(../images/sunset.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.banner::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  bottom: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(1, 1, 3, 1) 20%,
+    rgba(255, 255, 255, 0) 40%
+  );
+}
+
+.banner .konten {
+  height: 40rem;
+  padding: 1.4rem 7%;
+  max-width: 60rem;
+}
+
+.banner .konten h1 {
+  font-size: 4rem;
+  margin-top: 4rem;
+  color: #fff;
+  line-height: 1.2;
+  font-weight: 10rem;
+  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+}
+
+.banner .konten h1 span {
+  color: var(--primary);
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 10);
+}
+
+.banner .konten p {
+  font-size: 1.6rem;
+  margin-top: 1rem;
+  line-height: 1.4;
+  font-weight: 300;
+  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.4);
+}
+
+/* Button Menu Kami */
+.banner .konten .menus {
+  font-weight: 400;
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  font-size: 1.3rem;
+  color: #fff;
+  background-color: var(--primary);
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 1px rgba(1, 1, 3, 0.5);
+}
+
+.banner .konten a:hover {
+  color: var(--bg);
+}
+
+/** Tentang Kami */
+.abouts,
+.menu,
+.kontak {
+  padding: 8rem 7% 1.4rem;
+}
+
+.abouts h2,
+.menu h2,
+.kontak h2,
+.myimage h2 {
+  color: #fff;
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 3rem;
+}
+
+.abouts h2 span,
+.menu h2 span,
+.kontak h2 span,
+.myimage span {
+  color: #f99417;
+}
+
+.abouts .row {
+  display: flex;
+}
+
+.abouts .row .about-img img {
+  flex: 1 1 45rem;
+}
+
+.abouts .row .content {
+  flex: 1 1 35rem;
+  padding: 0 1rem;
+}
+
+.abouts .row .content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.abouts .row .content p {
+  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 100;
+  line-height: 1.6;
+}
+
+/*! Kontak Kami */
+.kontak p {
+  text-align: center;
+  max-width: 30rem;
+  margin: auto;
+  font-weight: 100;
+  line-height: 1.6;
+}
+
+.kontak h2 {
+  margin-bottom: 1rem;
+}
+
+.kontak .row {
+  display: flex;
+  margin-top: 2rem;
+  background-color: #222222;
+}
+
+.kontak .row .map {
+  flex: 1 1 45rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+.kontak .row form {
+  flex: 1 1 45rem;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.kontak .row form .input-group {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  background-color: var(--bg);
+  border: 1px solid var(--primary);
+  padding-left: 2rem;
+}
+
+.kontak .row form .input-group input {
+  width: 100%;
+  padding: 2rem;
+  font-size: 1.7rem;
+  background: none;
+  color: #fff;
+}
+
+.kontak .row form button {
+  margin-top: 3rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  background: var(--primary);
+  font-size: 1.7rem;
+  color: #fff;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.kontak .row form button:hover {
+  color: var(--bg);
+}
+
+/* Gambar Kami */
+
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {
+  opacity: 0.7;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+
+/* Content Modal */
+.content-modal {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+
+.content-modal,
+#caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  form {
+    transform: scale(0.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Tombol Close */
+.close {
+  margin: 55px;
+  padding: 25px;
+  margin-top: 45px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #f99417;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+
+@media only screen and (max-width: 700px) {
+  .content-modal {
+    width: 100%;
+  }
+}
+
+.myimage p {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 5rem;
+}
